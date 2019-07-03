@@ -1,4 +1,4 @@
-import Veiculo from "./VeiculoInterface";
+import Veiculo from "./Veiculo";
 
 export default class Moto implements Veiculo {
 

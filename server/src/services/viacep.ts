@@ -1,5 +1,5 @@
 import request from "request";
-import AddressInterface from "../models/AddressInterface";
+import AddressInterface from "../models/Address";
 
 export async function getAdressByCep(cepValue: number | string): Promise<AddressInterface> {
     return new Promise((resolve, reject) => {
