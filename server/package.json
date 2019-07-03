@@ -18,12 +18,14 @@
   "author": "Raphael de Oliveira",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.0",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.0.10",
+    "@types/request": "^2.48.1",
     "@types/supertest": "^2.0.7",
     "dotenv": "^8.0.0",
     "jest": "^24.8.0",
