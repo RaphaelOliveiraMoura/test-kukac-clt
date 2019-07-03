@@ -1,4 +1,4 @@
-interface AddressInterface {
+export default interface AddressInterface {
     cep: number|string;
     state: string;
     city: string;
