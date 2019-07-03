@@ -1,0 +1,36 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node build/index.js",
+    "start:dev": "nodemon source/index.ts",
+    "start:build": "tsc && npm run start",
+    "build": "tsc",
+    "test": "export NODE_ENV=test && jest --runInBand --detectOpenHandles"
+  },
+  "keywords": [
+    "kukac",
+    "clt",
+    "processo-seletivo"
+  ],
+  "author": "Raphael de Oliveira",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0",
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.0.10",
+    "@types/supertest": "^2.0.7",
+    "dotenv": "^8.0.0",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1",
+    "sucrase": "^3.10.1",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.2"
+  }
+}
