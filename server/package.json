@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node build/index.js",
-    "start:dev": "nodemon source/index.ts",
+    "start:dev": "nodemon src/index.ts",
     "start:build": "tsc && npm run start",
     "build": "tsc",
     "test": "export NODE_ENV=test && jest --runInBand --detectOpenHandles"
