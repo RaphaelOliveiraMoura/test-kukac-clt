@@ -1,3 +1,5 @@
+import request from "supertest";
+import application from "../../src/app";
 import { getAdressByCep } from '../../src/services/viacep';
 
 describe('viacep API', async () => {
@@ -13,14 +15,34 @@ describe('viacep API', async () => {
     });
 })
 
-describe('POST /cep', async () => {
-    test('send 5 valid ceps and get a list with all information about address of these ceps', async () => {
+describe('GET /cep', async () => {
+    test('send a valid cep and get all information about address of this cep', async () => {
+        const response = await request(application.express)
+            .get('/cep')
+            .set({
+                'Accept': 'application/json'
+            }).send({
+                cep: 32415295
+            });
 
+        expect(response.status).toBe(200);
+        expect(response.body).toHaveProperty('cep');
+        expect(response.body).toHaveProperty('state');
+        expect(response.body).toHaveProperty('city');
+        expect(response.body).toHaveProperty('neighborhood');
+        expect(response.body).toHaveProperty('street');
+        expect(response.body).toHaveProperty('complement');
     });
-    test('send just one cep and get information about it', async () => {
+    test('send a invalid cep to get a error', async () => {
+        const response = await request(application.express)
+            .get('/cep')
+            .set({
+                'Accept': 'application/json'
+            }).send({
+                cep: 56456456465
+            });
 
-    });
-    test('send invalid ceps to get a error', async () => {
-
+        expect(response.status).toBe(400);
+        expect(response.body).toHaveProperty('error');
     });
 })

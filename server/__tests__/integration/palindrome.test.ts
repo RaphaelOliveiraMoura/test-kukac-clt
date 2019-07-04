@@ -1,9 +1,9 @@
 import request from "supertest";
 import application from "../../src/app";
 
-describe('', async () => {
+describe('GET /palindrome', async () => {
     test('', async () => {
-
+        
     });
 
     test('', async () => {

@@ -1,7 +1,7 @@
 import request from "supertest";
 import application from "../../src/app";
 
-describe('', async () => {
+describe('POST /money', async () => {
     test('', async () => {
 
     });
