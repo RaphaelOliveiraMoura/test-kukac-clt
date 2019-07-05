@@ -3,20 +3,17 @@ import AddressInterface from "../models/Address";
 
 export async function getAdressByCep(cepValue: number | string): Promise<AddressInterface> {
     return new Promise((resolve, reject) => {
-        request.get(`https://viacep.com.br/ws/${cepValue}/json/`)
-            .on('response', function (data: any) {
-                if(data.error) reject('CPF not found');
-                resolve({
-                    'cep': data.cep,
-                    'state': data.uf,
-                    'city': data.localidade,
-                    'neighborhood': data.bairro,
-                    'street': data.logradouro,
-                    'complement': data.complemento
-                });
-            })
-            .on('error', function (error: any) {
-                reject('Invalid CPF');
+        request.get(`https://viacep.com.br/ws/${cepValue}/json/`, function callback(error, info, response) {
+            const data = JSON.parse(response);
+            if (error || data.error) return reject('CPF not found');
+            return resolve({
+                'cep': data.cep,
+                'state': data.uf,
+                'city': data.localidade,
+                'neighborhood': data.bairro,
+                'street': data.logradouro,
+                'complement': data.complemento
             });
+        });
     });
 }

@@ -26,8 +26,8 @@ export function generatePalindromeNumbers(
     const lastValue = startInterval < finalInterval ? finalInterval : startInterval;
 
     let palindromeValues: Array<number> = [];
-    for(let value = firstValue; value < lastValue; value++){
-        if(verifyIfIsPalindrome(value)) palindromeValues.push(value);
+    for(let value: number = firstValue; value <= lastValue; value++){
+        if(verifyIfIsPalindrome(value)) palindromeValues.push(parseInt(<any>value));
     }
 
     return palindromeValues;

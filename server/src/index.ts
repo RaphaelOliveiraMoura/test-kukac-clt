@@ -3,7 +3,7 @@ import application from './app';
 
 const configuration = {
     host: 'localhost',
-    port: 4040
+    port: 6060
 }
 
 application.listen(configuration.port, () => {

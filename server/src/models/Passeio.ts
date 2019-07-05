@@ -20,5 +20,8 @@ export default class Passeio implements Veiculo {
         this.yearOfManufacture = params.yearOfManufacture;
         this.brand = params.brand;
         this.text = params.text || {};
+
+        if (!this.model || !this.yearOfManufacture || !this.brand)
+            throw `Is not possible create a passeio car without correct args`
     }
 }

@@ -30,6 +30,9 @@ export default class Moto implements Veiculo {
         if (params.passengers < 1 && params.passengers > 2)
             throw `Motorbike cannot have ${params.passengers} passengers`
 
+        if (!this.model || !this.yearOfManufacture || !this.brand)
+            throw `Is not possible create a motorbike without correct args`
+
         this.passengers = params.passengers;
 
     }

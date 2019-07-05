@@ -8,7 +8,7 @@
     "start:dev": "nodemon src/index.ts",
     "start:build": "tsc && npm run start",
     "build": "tsc",
-    "test": "export NODE_ENV=test && jest --runInBand --detectOpenHandles"
+    "test": "jest --runInBand --forceExit --silent"
   },
   "keywords": [
     "kukac",

@@ -3,7 +3,7 @@ import application from "../../src/app";
 import { getAdressByCep } from '../../src/services/viacep';
 
 describe('viacep API', async () => {
-    test('get a full address from the viacep api service', async () => {
+    await test('get a full address from the viacep api service', async () => {
 
         await getAdressByCep(32415295).then((address) => {
             expect(address).toHaveProperty('cep');
@@ -16,13 +16,11 @@ describe('viacep API', async () => {
 })
 
 describe('GET /cep', async () => {
-    test('send a valid cep and get all information about address of this cep', async () => {
+    await test('send a valid cep and get all information about address of this cep', async () => {
         const response = await request(application.express)
-            .get('/cep')
+            .get('/cep/32415295')
             .set({
                 'Accept': 'application/json'
-            }).send({
-                cep: 32415295
             });
 
         expect(response.status).toBe(200);
@@ -33,13 +31,11 @@ describe('GET /cep', async () => {
         expect(response.body).toHaveProperty('street');
         expect(response.body).toHaveProperty('complement');
     });
-    test('send a invalid cep to get a error', async () => {
+    await test('send a invalid cep to get a error', async () => {
         const response = await request(application.express)
-            .get('/cep')
+            .get('/cep/6545646554')
             .set({
                 'Accept': 'application/json'
-            }).send({
-                cep: 56456456465
             });
 
         expect(response.status).toBe(400);
