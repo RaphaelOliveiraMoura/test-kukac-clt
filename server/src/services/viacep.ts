@@ -4,8 +4,14 @@ import AddressInterface from "../models/Address";
 export async function getAdressByCep(cepValue: number | string): Promise<AddressInterface> {
     return new Promise((resolve, reject) => {
         request.get(`https://viacep.com.br/ws/${cepValue}/json/`, function callback(error, info, response) {
+            
+            if (error) 
+                return reject('Invalid CPF');
+
+            if ( info.statusCode == 400 || JSON.parse(response).erro ) 
+                return reject('CPF not found');
+
             const data = JSON.parse(response);
-            if (error || data.error) return reject('CPF not found');
             return resolve({
                 'cep': data.cep,
                 'state': data.uf,

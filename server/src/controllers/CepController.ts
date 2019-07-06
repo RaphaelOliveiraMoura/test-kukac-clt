@@ -7,11 +7,9 @@ export default class CepController{
         const cep = request.params.cepValue;
 
         getAdressByCep(cep).then(function (data) {
-            console.log(data);
-            
             return response.status(200).send(data);
         }).catch(function (error) {
-            return response.status(400).send(error);
+            return response.status(400).send({error});
         });
     }
 
