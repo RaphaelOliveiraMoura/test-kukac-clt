@@ -3,8 +3,12 @@
     text-transform: uppercase;
 }
 
-.cep-explanation .description {
+.cep-explanation .description span {
     font-size: 1.6em;
+    color: #9c8181;
+}
+
+.cep-explanation .description {
     color: #9c8181;
 }
 
@@ -18,6 +22,12 @@
 
 .cep-information .cep-container{
     margin: 1em;
+    transition-duration: 500ms;
+}
+
+.cep-information .cep-container:hover{
+    margin-top: 4px;
+    transition-duration: 500ms;
 }
 
 .cep-information .row {

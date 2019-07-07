@@ -19,11 +19,21 @@ export class CepFormComponent implements OnInit {
   }
 
   async getAllInfomationAboutCeps(){
-    await this.ceps.map(async (cep, index)=>{
-      await this.cepService.getAddressInformations(cep).subscribe((response)=>{ 
+    for (let index = 0; index < this.ceps.length; index++) {
+      await this.getAdressInformation(this.ceps[index]).then((response)=>{
         this.cepsInformations[index] = response;
-      }, (erorr) => {
+      }).catch((error)=>{
         this.cepsInformations[index] = null;
+      });
+    }
+  }
+
+  async getAdressInformation(cep: number|string): Promise<AddressInterface>{
+    return new Promise((resolve, reject)=>{
+      this.cepService.getAddressInformations(cep).subscribe((response)=>{ 
+        resolve(response);
+      }, (error) => {
+        reject(error);
       });
     });
   }
