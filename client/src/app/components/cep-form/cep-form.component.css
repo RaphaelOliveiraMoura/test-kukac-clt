@@ -1,15 +1,60 @@
-.cep-form .row {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
+.cep-explanation .title {
+    font-size: 2.5em;
+    text-transform: uppercase;
 }
 
-.cep-result .ceps-list {
+.cep-explanation .description {
+    font-size: 1.6em;
+    color: #9c8181;
+}
+
+.cep-explanation .orientation {
+    margin-top: 2em;
+}
+
+.cep-information {
+    margin-top: 2em;
+}
+
+.cep-information .cep-container{
+    margin: 1em;
+}
+
+.cep-information .row {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+}
+
+.cep-information .col {
+    margin-left: 0;
+}
+
+.cep-information .cep-item .cep-input {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 4px;
+}
+
+.cep-information .cep-item .cep-input i {
+    position: absolute;
+    padding-right: 6px;
+}
+
+.cep-information .cep-item .cep-input input {
+    padding-left: 6px;
+    background-color: transparent !important;
+    box-shadow: 0 0 0 30px white inset !important;
+}
+
+.cep-information .cep-item .cep-input input:-webkit-autofill,
+.cep-information .cep-item .cep-input input:-webkit-autofill:hover, 
+.cep-information .cep-item .cep-input input:-webkit-autofill:focus, 
+.cep-information .cep-item .cep-input input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px white inset !important;
 }
 
 @-webkit-keyframes fadeIn {
@@ -20,9 +65,14 @@
     from { opacity: 0; }
       to { opacity: 1; }
 }
-.cep-result .ceps-list .cep-item{
+
+.cep-information .cep-item .card-content{
     max-width: 16em;
-    margin: 16px;
+    margin: auto;
     -webkit-animation: fadeIn 2s;
     animation: fadeIn 2s;
+}
+
+.cep-information .cep-item .card-content span{
+    font-weight: 700;
 }

@@ -2,50 +2,33 @@
   <div class="title">Consulta CEP</div>
   <div class="description">
     Este exercício tem como base fazer várias requisições para a API de forma síncrona.
-    Coloque 5 ceps abaixo e verifique quais são as informações completas de todos eles.
+  </div>
+  <div class="orientation">
+    Coloque 5 ceps abaixo e verifique quais são as informações completas de todos eles:
   </div>
 </div>
-<div class="cep-form">
-  <form>
-    <div class="row">
-      <div class="input-field col s6">
-        <i class="material-icons prefix" *ngIf="cepsInformations[0]">check</i>
-        <input type="text" [(ngModel)]="ceps[0]" name="cep-form-0" class="validate" required>
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix" *ngIf="cepsInformations[1]">check</i>
-        <input type="text" [(ngModel)]="ceps[1]" name="cep-form-1" class="validate" required>
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix" *ngIf="cepsInformations[2]">check</i>
-        <input type="text" [(ngModel)]="ceps[2]" name="cep-form-2" class="validate" required>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s6">
-        <i class="material-icons prefix" *ngIf="cepsInformations[3]">check</i>
-        <input type="text" [(ngModel)]="ceps[3]" name="cep-form-3" class="validate" required>
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix" *ngIf="cepsInformations[4]">check</i>
-        <input type="text" [(ngModel)]="ceps[4]" name="cep-form-4" class="validate" required>
-      </div>
-    </div>
 
+
+<form class="cep-information">
+  <div class="row">
+    <div class="cep-container col s12 m5 l3" *ngFor="let index of formsAmmount">
+      <div class="cep-item card">
+        <div class="cep-input">
+          <i class="material-icons prefix" *ngIf="cepsInformations[index]">check</i>
+          <i class="material-icons prefix" *ngIf="cepsInformations[index] === null">close</i>
+          <input type="text" [(ngModel)]="ceps[index]" [name]="'cep-form-'+index"  class="validate" required>
+        </div>
+        <div class="card-content" *ngIf="cepsInformations[index]">
+          <span class="card-title">{{cepsInformations[index].cep}}</span>
+          <span>Rua: </span>{{cepsInformations[index].street}}<br>
+          <span>Bairro: </span>{{cepsInformations[index].neighborhood}}<br>
+          <span>Cidade: </span>{{cepsInformations[index].city}}<br>
+          <span>Estado: </span>{{cepsInformations[index].state}}<br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <button type="submit" class="btn waves-effect waves-light" (click)="getAllInfomationAboutCeps()">Enviar</button>
-  </form>
-</div>
-
-<div class="cep-result">
-  <div class="ceps-list">
-    <div class="cep-item card blue-grey darken-1" *ngFor="let cepInformation of cepsInformations">
-      <div class="card-content white-text" *ngIf="cepInformation">
-        <span class="card-title">{{cepInformation.cep}}</span>
-        <span>Rua: </span>{{cepInformation.street}}<br>
-        <span>Bairro: </span>{{cepInformation.neighborhood}}<br>
-        <span>Cidade: </span>{{cepInformation.city}}<br>
-        <span>Estado: </span>{{cepInformation.state}}<br>
-      </div>
-    </div>
   </div>
-</div>
+</form>

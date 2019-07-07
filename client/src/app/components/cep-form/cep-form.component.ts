@@ -9,6 +9,7 @@ import AddressInterface from 'src/app/models/CepInformation';
 })
 export class CepFormComponent implements OnInit {
 
+  formsAmmount: Array<number> = new Array(5).fill(0).map((item, index)=>index);
   ceps: Array<string|number> = [];
   cepsInformations: Array<AddressInterface> = [];
 
@@ -21,6 +22,8 @@ export class CepFormComponent implements OnInit {
     await this.ceps.map(async (cep, index)=>{
       await this.cepService.getAddressInformations(cep).subscribe((response)=>{ 
         this.cepsInformations[index] = response;
+      }, (erorr) => {
+        this.cepsInformations[index] = null;
       });
     });
   }
