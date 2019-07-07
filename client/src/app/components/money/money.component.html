@@ -1,3 +1,66 @@
-<p>
-  money works!
-</p>
+<div class="money-explanation">
+  <div class="title">
+    Sistema de compras
+  </div>
+  <div class="description">
+    Descubra quanto devolver de troco utilizando o mínimo de notas possível
+  </div>
+</div>
+<div class="money-form">
+  <div class="description">
+    Digite o valor total da compra e o valor do pagamento, e você saberá a quantidade de notas que deve ser devolvido.
+  </div>
+  <div class="row">
+    <div class="input-field col s12 m5 5">
+      <input id="total-value" type="number" class="validate" [(ngModel)]="totalValue" name="total-value">
+      <label for="total-value">Valor total</label>
+    </div>
+    <div class="input-field col s12 m5 5">
+      <input id="paid-value" type="number" class="validate" [(ngModel)]="paidValue" name="paid-value">
+      <label for="paid-value">Valor pago</label>
+    </div>
+    <div class="input-field col s12 m2 2">
+      <button id="money-button-submit" class="btn waves-effect waves-light" (click)="makePurshace()">Calcular</button>
+    </div>
+  </div>
+</div>
+<div class="money-result" *ngIf="moneyResult">
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">Resultado</span>
+      <div class="row">
+        <div class="col s12 m8">
+          <div class="explanation">
+            A compra realizada no valor de {{moneyResult.total}}$ e paga utilizando {{moneyResult.paid}}$ tem como troco {{moneyResult.back.value}}$
+          </div>
+          <div class="description">
+            Segue a quantidade de notas que pode ser devolvida como troco
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <div class="row note-container">
+            <div class="note">
+              <div class="value">1</div>
+              <i class="material-icons">monetization_on</i>
+            </div>
+            <span class="note-ammount"> x {{moneyResult.back.notes[1]}}</span>
+          </div>
+          <div class="row note-container">
+            <div class="note">
+              <div class="value">10</div>
+              <i class="material-icons">monetization_on</i>
+            </div>
+            <span class="note-ammount"> x {{moneyResult.back.notes[10]}}</span>
+          </div>
+          <div class="row note-container">
+            <div class="note">
+              <div class="value">100</div>
+              <i class="material-icons">monetization_on</i>
+            </div>
+            <span class="note-ammount"> x {{moneyResult.back.notes[100]}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

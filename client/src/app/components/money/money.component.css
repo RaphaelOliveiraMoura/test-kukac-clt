@@ -1,0 +1,65 @@
+.money-explanation .title {
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+.money-explanation .description {
+    font-size: 1.6em;
+    color: #9c8181;
+}
+
+.money-form .description {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+.money-form .row {
+    display: flex;
+    align-items: center;
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}  
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+.money-result {
+    max-width: 70%;
+    margin: auto;
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
+
+.money-result .card .card-title {
+    font-weight: 600;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+
+.money-result .card .note {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 2px 0px #4b903f;
+    background-color: #62bd50;
+    width: 4.2em;
+    justify-content: space-evenly;
+    border-radius: 4px;
+}
+
+.money-result .card .card-content .note-container {
+    display: flex;
+    justify-content: center;
+}
+
+.money-result .card .card-content .description {
+    font-size: 0.8em;
+    color: #9c8181;
+    margin: 1em 0;
+}
+
+.money-result .card .card-content .note-container .note-ammount {
+    padding-left: 6px;
+}
