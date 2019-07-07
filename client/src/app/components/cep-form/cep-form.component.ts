@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CepService } from 'src/app/services/cep.service';
+import AddressInterface from 'src/app/models/CepInformation';
 
 @Component({
   selector: 'app-cep-form',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CepFormComponent implements OnInit {
 
-  constructor() { }
+  ceps: Array<string|number> = [];
+  cepsInformations: Array<AddressInterface> = [];
+
+  constructor(private cepService: CepService) { }
 
   ngOnInit() {
+  }
+
+  async getAllInfomationAboutCeps(){
+    await this.ceps.map(async (cep, index)=>{
+      await this.cepService.getAddressInformations(cep).subscribe((response)=>{ 
+        this.cepsInformations[index] = response;
+      });
+    });
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PalindromeService } from 'src/app/services/palindrome.service';
 
 @Component({
   selector: 'app-palindromes',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PalindromesComponent implements OnInit {
 
-  constructor() { }
+  palindromes: Array<number>;
+  firstValueInInterval: number = 0;
+  lastValueInInterval: number = 100;
+  
+  constructor(private palindromeService: PalindromeService) { }
 
   ngOnInit() {
+    
+  }
+
+  sendPalindromesRequest(){
+    this.palindromeService.getPalindromes(this.firstValueInInterval, this.lastValueInInterval).subscribe((response)=>{ 
+      this.palindromes = response;
+    });
   }
 
 }

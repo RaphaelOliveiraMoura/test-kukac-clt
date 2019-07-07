@@ -1,0 +1,28 @@
+.cep-form .row {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.cep-result .ceps-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}  
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+.cep-result .ceps-list .cep-item{
+    max-width: 16em;
+    margin: 16px;
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}

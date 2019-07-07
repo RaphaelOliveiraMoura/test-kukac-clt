@@ -1,3 +1,27 @@
-<p>
-  palindromes works!
-</p>
+<div class="palindrome-explanation">
+  <div class="title">
+    O que são palíndromos?
+  </div>
+  <div class="description">
+      Números palíndromos são aqueles que escritos da direita para esquerda ou da esquerda para
+      direita tem o mesmo valor. Exemplo: 929, 44, 97379.
+  </div>
+</div>
+<div class="palindrome-form">
+  <div class="title">
+    Teste você mesmo:
+  </div>
+  <div class="description">
+    Veja quais são os números palíndromos dentro de um interavlo de números.
+  </div>
+  <div class="range-field">
+    <input type="range" name="range-palindrome" min="0" max="1000" [(ngModel)]="lastValueInInterval" />
+    <div class="range-value">{{firstValueInInterval}}-{{lastValueInInterval}}</div>
+  </div>
+  <button id="range-button-submit" class="btn waves-effect waves-light" (click)="sendPalindromesRequest()">Pesquisar</button>
+</div>
+<div class="palindromes-list">
+  <div *ngFor="let palindrome of palindromes" class="palindromes-item">
+    <span class="palindrome-number">{{palindrome}}</span>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+.palindrome-explanation .title {
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+.palindrome-explanation .description {
+    font-size: 1.6em;
+    color: #9c8181;
+}
+
+.palindrome-form .title{
+    margin-top: 2em;
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+
+.palindrome-form .description {
+    color: #9c8181;
+}
+
+.range-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.range-value {
+    background-color: #e4e0e0;
+    box-shadow: 0 0 2px 0px #9c8181;
+    padding: 6px;
+    margin-left: 4px;
+    border-radius: 6px;
+    text-align: center;
+    min-width: 60px;
+}
+
+#range-button-submit {
+    display: flex;
+    margin: auto;
+}
+
+.palindromes-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.palindromes-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4em;
+    height: 3em;
+    box-shadow: 0 0 2px 0px #9c8e8e;
+    margin: 8px;
+    background-color: #cecef9;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.palindromes-item:hover {
+    background-color: #26a69a;
+}
