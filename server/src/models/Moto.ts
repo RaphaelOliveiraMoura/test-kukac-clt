@@ -36,4 +36,15 @@ export default class Moto implements Veiculo {
         this.passengers = params.passengers;
 
     }
+
+    public toJson(){
+        return {
+            'type': 'motorcycle',
+            'model': this.model,
+            'yearOfManufacture': this.yearOfManufacture,
+            'brand': this.brand,
+            'passengers': this.passengers,
+            'text': this.text,
+        }
+    }
 }

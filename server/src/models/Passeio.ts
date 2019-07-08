@@ -24,4 +24,15 @@ export default class Passeio implements Veiculo {
         if (!this.model || !this.yearOfManufacture || !this.brand)
             throw `Is not possible create a passeio car without correct args`
     }
+
+    public toJson(){
+        return {
+            'type': 'passeio',
+            'model': this.model,
+            'yearOfManufacture': this.yearOfManufacture,
+            'brand': this.brand,
+            'doorsAmmount': this.doorsAmmount,
+            'text': this.text,
+        }
+    }
 }
