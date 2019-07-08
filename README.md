@@ -7,7 +7,7 @@ Vaga de desenvolvedor clt pela kukac
 # project-folder/server npm install
 # project-folder/client npm install
 ```
-Caso estiver rodando no linux, talves seja necessário utilizado o comando com em modo administrador
+Caso estiver rodando no linux, talvez seja necessário executar o comando em modo adminitrador:
 ```
 # project-folder/server sudo npm install
 # project-folder/client sudo npm install
@@ -37,7 +37,7 @@ Para executar o front end basta executar o comando:
 ```
 # project-folder/server ng serve --open
 ```
-Rodando a aplicação no linux, talves seja necessário utilizar o comando em modo de administrador:
+Rodando a aplicação no linux, talvez seja necessário executar o comando em modo adminitrador:
 ```
 # project-folder/server sudo ng serve --open
 ```
