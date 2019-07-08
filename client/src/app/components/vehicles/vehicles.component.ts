@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Vehicle, { Passeio, Motorcycle } from 'src/app/models/Vehicles';
 import { VehicleService } from 'src/app/services/vehicle.service';
 
-import { toast } from 'angular2-materialize';
+import * as M from "materialize-css/dist/js/materialize";
 
 @Component({
   selector: 'app-vehicles',
@@ -24,6 +24,10 @@ export class VehiclesComponent implements OnInit {
   constructor(private vehicleService: VehicleService) { }
 
   ngOnInit() {
+    this.listVehicles();
+  }
+
+  listVehicles(){
     this.vehicleService.getVehicles().subscribe((response)=>{ 
       this.vehicles = response;
     });
@@ -38,9 +42,10 @@ export class VehiclesComponent implements OnInit {
       passagers,
       yearOfManufacture
     }).subscribe((response)=>{
-      toast("Veículo cadastrado com sucesso", 4000);
+      M.toast({html: "Veículo cadastrado com sucesso"});
+      this.listVehicles();
     },(error)=>{
-      toast("Erro cadastrar veículo", 4000);
+      M.toast({html: "Erro ao cadastrar veículo"});
     });
   }
 
@@ -52,9 +57,10 @@ export class VehiclesComponent implements OnInit {
       model,
       yearOfManufacture
     }).subscribe((response)=>{
-      toast("Veículo cadastrado com sucesso", 4000);
+      M.toast({html: "Veículo cadastrado com sucesso"});
+      this.listVehicles();
     },(error)=>{
-      toast("Erro cadastrar veículo", 4000);
+      M.toast({html: "Erro ao cadastrar veículo"});
     });
   }
 
@@ -63,6 +69,8 @@ export class VehiclesComponent implements OnInit {
       this.createPasseio();
     }else if(this.vehicleTypeForm == 2){
       this.createMotorcycle();
+    }else{
+      M.toast({html: "Erro ao cadastrar veículo"});
     }
   }
 }

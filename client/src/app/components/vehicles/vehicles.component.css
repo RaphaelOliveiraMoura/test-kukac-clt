@@ -3,10 +3,14 @@
     text-transform: uppercase;
 }
 
-.presentation .description {
+.presentation .description span{
     font-size: 1.6em;
     color: #9c8181;
     margin-bottom: 2em;
+}
+
+.presentation .description {
+    color: #9c8181;
 }
 
 .vehicles-list {
@@ -54,7 +58,7 @@
     min-height: 20em;
 }
 
-#modal .modal-content .input-field{
+#modal .modal-content .select{
     width: 50%;
     margin: auto;
 }
