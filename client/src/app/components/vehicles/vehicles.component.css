@@ -1,0 +1,60 @@
+.presentation .title {
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+.presentation .description {
+    font-size: 1.6em;
+    color: #9c8181;
+    margin-bottom: 2em;
+}
+
+.vehicles-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.vehicles-list .vehicle-item {
+    min-width: 20%;
+    cursor: pointer;
+    transition-duration: 800ms;
+    margin: 8px;
+}
+
+.vehicles-list .vehicle-item:hover {
+    background-color: #ececec;
+    transition-duration: 800ms;
+}
+
+.vehicles-list .vehicle-item .card-content .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vehicles-list .vehicle-item .card-content .header .card-title{
+    font-size: 1.6em;
+    text-transform: uppercase;
+}
+
+.vehicles-list .vehicle-item .card-content .description{
+    color: #9c8181;
+    text-transform: uppercase;
+}
+
+#modal .modal-content h4 {
+    margin-bottom: 1.5em;
+}
+
+#modal .modal-content {
+    min-height: 20em;
+}
+
+#modal .modal-content .input-field{
+    width: 50%;
+    margin: auto;
+}

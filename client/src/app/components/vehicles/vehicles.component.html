@@ -1,1 +1,59 @@
-<app-vehicle-form></app-vehicle-form>
+<div class="presentation">
+    <div class="title">
+        Lista de veículos
+    </div>
+    <div class="description">
+        Abaixo estão todos os veículos salvos pelo back end em um arquivo JSON.
+        <a class="btn-floating btn-large waves-effect waves-light red right modal-trigger" href="#modal"><i class="material-icons">add</i></a>
+    </div>
+</div>
+<div class="vehicles-list">
+    <div class="vehicle-item card" *ngFor="let vehicle of vehicles">
+        <div class="card-content">
+            <div class="header">
+                <span class="card-title">{{vehicle.brand}}</span>
+                <i class="material-icons right" *ngIf="vehicle.type=='passeio'">directions_car</i>
+                <i class="material-icons right" *ngIf="vehicle.type=='motorcycle'">motorcycle</i>
+            </div>
+            <span class="description">{{vehicle.model}}, {{vehicle.yearOfManufacture}}</span>
+        </div>
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h4>Cadastre seu veículo</h4>
+        <div class="input-field">
+            <select [(ngModel)]="vehicleTypeForm">
+                <option value="" disabled selected>Selecione um tipo</option>
+                <option value="1">Carro de passeio</option>
+                <option value="2">Moto</option>
+            </select>
+            <label>Qual o seu veículo?</label>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="brand" type="text" class="validate" [(ngModel)]="vehicle.brand" name="brand">
+                <label for="brand">Marca</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="model" type="text" class="validate" [(ngModel)]="vehicle.model" name="model">
+                <label for="model">Modelo</label>
+            </div>
+        </div>
+            <div class="row">
+            <div class="input-field col s6">
+                <input id="manufacture-year" type="number" class="validate" [(ngModel)]="vehicle.yearOfManufacture" name="yearOfManufacture">
+                <label for="manufacture-year">Ano de fabricação</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="passagers" type="number" class="validate" [(ngModel)]="vehicle.passagers" name="passagers">
+                <label for="passagers">Passageiros</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="/vehicles#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        <a href="/vehicles" class=" modal-action modal-close waves-effect waves-green btn-flat" (click)="createVehicle()">Cadastrar</a>
+    </div>
+</div>

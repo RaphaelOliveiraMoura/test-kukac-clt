@@ -6,6 +6,7 @@ import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { MoneyComponent } from './components/money/money.component';
 
 const routes: Routes = [
+  { path: '', component: CepFormComponent },
   { path: 'cep', component: CepFormComponent },
   { path: 'palindromes', component: PalindromesComponent },
   { path: 'money', component: MoneyComponent },
