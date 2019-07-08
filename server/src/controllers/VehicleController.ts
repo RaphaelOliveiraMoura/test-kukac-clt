@@ -28,7 +28,6 @@ export default class VehicleController {
             const moto = new Moto({ brand, model, passengers, yearOfManufacture, text });
             const fileData = fileSystem.readFileSync(databasePath, 'utf8') || '[]';
             const vehicles = JSON.parse(fileData);
-            console.log(vehicles);
             vehicles.push(moto.toJson());
             fileSystem.writeFileSync(databasePath, JSON.stringify(vehicles));
             return response.status(201).send(moto);
@@ -39,7 +38,7 @@ export default class VehicleController {
 
     static async listVehicles(request: Request, response: Response) {
         try {
-            const fileData = require(databasePath);
+            const fileData = fileSystem.readFileSync(databasePath, 'utf8') || '[]';
             const vehicles = JSON.parse(fileData);
             return response.status(201).send(vehicles);
         } catch (error) {

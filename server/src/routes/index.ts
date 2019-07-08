@@ -25,11 +25,16 @@ routes.post('/money', MoneyController.purshace);
 /**
  * Cria um veiculo do tipo moto e o salva em um arquivo JSON
  */
-routes.post('/vehicle/moto', VehicleController.createMoto);
+routes.post('/vehicles/moto', VehicleController.createMoto);
 
 /**
  * Cria um veiculo do tipo passeio e o armazena em um arquivo JSON
  */
-routes.post('/vehicle/passeio', VehicleController.createPasseio);
+routes.post('/vehicles/passeio', VehicleController.createPasseio);
+
+/**
+ * Pega todos os veículos armazenados no JSON
+ */
+routes.get('/vehicles', VehicleController.listVehicles);
 
 export default routes;
