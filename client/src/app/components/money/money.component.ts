@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import MoneyInterface from 'src/app/models/Money';
 import { MoneyService } from 'src/app/services/money.service';
 
+import * as M from "materialize-css/dist/js/materialize";
+
 @Component({
   selector: 'app-money',
   templateUrl: './money.component.html',
@@ -23,6 +25,7 @@ export class MoneyComponent implements OnInit {
       this.moneyResult = response;
     }, (error)=>{
       this.moneyResult = null;
+      M.toast({html: "Erro ao calcular compra"});
     });
   }
 

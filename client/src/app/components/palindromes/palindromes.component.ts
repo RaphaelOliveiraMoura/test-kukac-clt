@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PalindromeService } from 'src/app/services/palindrome.service';
 
+import * as M from "materialize-css/dist/js/materialize";
+
 @Component({
   selector: 'app-palindromes',
   templateUrl: './palindromes.component.html',
@@ -21,6 +23,8 @@ export class PalindromesComponent implements OnInit {
   sendPalindromesRequest(){
     this.palindromeService.getPalindromes(this.firstValueInInterval, this.lastValueInInterval).subscribe((response)=>{ 
       this.palindromes = response;
+    }, (error)=>{
+      M.toast({html: "Erro ao listar palíndromos"});
     });
   }
 
